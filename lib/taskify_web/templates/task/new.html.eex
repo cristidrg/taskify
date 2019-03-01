@@ -1,0 +1,32 @@
+<div class="task-list">
+  <p class="task-list__header">Create new task</p>
+
+  <%= form_for @changeset, task_path(@conn, :create), fn f -> %>
+    <div class="task-new__select">
+      <p class="task-new__select-label">Task Owner</p>
+      <%= select f, :user_id, render_users(), class: "task-new__select-input", selected: @current_user.id %>
+    </div>
+
+    <%= text_input f, :title, class: "task-new__input", placeholder: "Task name"%>
+
+    <%= textarea f, :description, class: "task-new__txtbox", placeholder: "Task description"%>
+
+    <div class="task-new__last-row">
+      <p> Is task complete ? </p>
+      <%= checkbox f, :done, class: "task-new__complete" %>
+
+      <p class="task-new__minutes"> Minutes spent on task </p>
+      <%= number_input f, :minutes_worked, class: "task-new__increment", step: 15, value: 0 %>
+    </div>
+    
+    <%= submit "Submit", class: "task-new__submit btn btn-primary" %>
+
+     
+  <% end %>
+</div>
+<%= if @changeset.action do %>
+      <div class="alert alert-danger">
+        <p>Complete all the fields !</p>
+      </div>
+    <% end %>
+<%= link "Return to task list", to: task_path(@conn, :index), class: "task-new__return" %>

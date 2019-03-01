@@ -1,0 +1,15 @@
+<div class="task-list">
+  <div class="task-indiv__info">
+    <p class="task-indiv__header"><%= @task.title %></p>
+    <span class="task-list__time"><%= @task.minutes_worked %> mins</span>
+    <span class="task-list__status" data-complete="" ><%= if @task.done, do: "✔", else: "✖" %></span>
+  </div>
+  <span class="task-indiv__description"><%= @task.description %></span>
+  <div class="task-indiv__links">
+    <span class="task-list__owner"><%= @task.user.name %></span>
+    <%= link "Edit", to: task_path(@conn, :edit, @task) %>
+    <%= link "Back", to: task_path(@conn, :index) %>
+  </div>
+</div>
+
+

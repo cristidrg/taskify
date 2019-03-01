@@ -1,0 +1,405 @@
+/* This file is for your main application css. */
+@import "bootstrap";
+
+$accent: rgb(21, 174, 182);
+$gray: #e6e6e6;
+$gray-dark: #717171;
+$red: #e01010;
+
+.container {
+  position: relative;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(248, 248, 248);
+    color: black;
+    min-height: 100vh;
+    position: relative;
+}
+
+a {
+  color: $accent;
+}
+
+main {
+  max-width: 65%;
+  margin: 0 auto;
+}
+
+footer {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer__content {
+  max-width: 42%;
+  margin: 0 auto;
+  border-top: 2px solid $gray;
+  padding: 5px 0;
+
+  > p {
+    margin-bottom: 0;
+  }
+}
+
+.footer__author {
+  display: inline-block;
+}
+
+.footer__user {
+  float: right;
+  margin-right: 20px;
+}
+
+.footer__logout {
+  float: right;
+}
+
+.footer__content > p {
+  margin-bottom: 0;
+}
+
+.btn-primary {
+  background-color: $accent !important;
+  border-color: $accent !important; 
+}
+
+.taskify-status {
+  color: #ffffff;
+  background-color: #15b6be;
+  border-color: #15b6be;
+  padding: 0.75rem 1.25rem;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+.text-pop {
+  color: $accent;
+  font-weight: 700;
+}
+
+.app-title {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.task-indiv {
+  &__info {
+    display: flex;
+    padding-bottom: 5px;
+    border-bottom: 2px solid $gray;
+  }
+
+  &__header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__description {
+    color: $gray-dark;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    display: block;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 15px;
+
+    > span {
+      margin: 0 auto 0 0;
+    }
+
+    a {
+      @extend .btn;
+      @extend .btn-primary;
+      
+      width: 60px;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+  }
+
+}
+
+.task-new {
+  &__select {
+    display: flex;
+    align-items: center;
+  }
+
+  &__select-label {
+    margin: 0 20px 0 0;
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+
+  &__select-input {
+    flex-basis: 30%;
+    background-color: $accent;
+    color: white;
+    padding: 5px;
+    font-size: 1.3rem;
+  }
+
+  &__input {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 10px;
+    border-radius: 4px;
+    border: 2px solid $gray;
+    font-size: 1.3rem;
+  }
+
+  &__txtbox {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 10px;
+    border-radius: 4px;
+    border: 2px solid $gray;
+    font-size: 1rem;
+    min-height: 250px;
+  }
+
+  &__last-row {
+    display: flex;
+    align-items: center;
+
+    > p {
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin: 0;
+    }
+  }
+
+  &__complete {
+    zoom: 1.5;
+    transform: scale(1.5);
+    margin-left: 10px;
+    margin-top: 2px;
+  }
+
+  &__minutes {
+    margin-left: auto !important;
+  }
+
+  &__increment {
+    border-radius: 4px;
+    border: 2px solid $gray;
+    font-size: 1.3rem;
+    width: 50px;
+    margin-left: 10px;
+    background-color: $accent;
+    color: white;
+  }
+
+  &__submit {
+    display: block;
+    width: 100%;
+    margin: 20px auto;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  &__return {
+    display: block;
+    margin: 10px 15px;
+  }
+}
+
+.task-list {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px 35px;
+  margin-top: 50px;
+  position: relative;
+
+  &__header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-bottom: 2px solid $gray;
+    padding-bottom: 5px;
+  }
+
+  &__add {
+    font-size: 3.7rem;
+    background-color: #15aeb6;
+    border-radius: 45px;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    position: absolute;
+    right: -21px;
+    top: -13px;
+
+    &:hover {
+      background-color: white;
+      color: $accent;
+      border: 1px solid $accent;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+  }
+
+  &__container {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  &__entry {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  &__info {
+    display: flex;
+    flex-basis: 100%;
+  }
+
+  &__title {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  &__time {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+    &::before {
+      display: block;
+      content: ' ';
+      background-image: url('../images/clock.svg');
+      background-size: 20px 20px;
+      height: 20px;
+      width: 20px;
+      margin-right: 5px;
+    }
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    color: $accent;
+    margin-bottom: 2px;
+    margin-left: 30px;
+  }
+
+  &__description {
+    color: $gray-dark;
+    flex-basis: 100%;
+  }
+
+  &__owner {
+    display: flex;
+    align-items: baseline;
+    margin-top: 15px;
+
+    &::before {
+      display: block;
+      content: ' ';
+      background-image: url('../images/user.svg');
+      background-size: 20px 20px;
+      height: 20px;
+      width: 20px;
+      margin-right: 5px;
+    }
+  }
+
+  &__view {
+    margin-left: auto;
+    margin-top: 15px;
+    font-weight: 600;
+  }
+
+  &__edit {
+    margin-left: 15px;
+    margin-top: 15px;
+    font-weight: 600;
+  }
+
+  &__del {
+    margin-left: 15px;
+    margin-top: 15px;
+    font-weight: 600;
+    color: $red;
+  }
+}
+
+.landing {
+  &__copy {
+    margin: 25px auto;
+    font-size: 1.2rem;
+  }
+
+  &__login {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 75px auto 25px;
+
+    background-color: white;
+    border-radius: 10px;
+    padding: 35px 25px 45px;
+  }
+
+  &__sign {
+    flex-basis: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  &__personal {
+    flex-basis: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+  }
+
+  &__input {
+    flex-basis: 80%;
+    margin: 1% 10%;
+    padding: 10px 10px;
+    border-radius: 4px;
+    border: 2px solid $gray;
+  }
+
+  &__input-reg {
+    flex-basis: 80%;
+    margin: 1% 10%;
+    padding: 10px 10px;
+    border-radius: 4px;
+    border: 2px solid $gray;
+  }
+
+  &__btn {
+    margin-left: 75.4%;
+    margin-top: 25px;
+    width: 100px;
+  }
+
+  &__create {
+    margin-left: 10%;
+    margin-top: -33px;
+    color: $accent;
+  }
+}
+

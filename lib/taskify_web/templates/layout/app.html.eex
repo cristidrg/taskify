@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taskify</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+</head>
+
+<body>
+  <div class="container">
+    <main role="main">
+      <h1 class="app-title">Taskify - power your productivity!</h1>
+      <%= render @view_module, @view_template, assigns %>
+
+      <%= if get_flash(@conn, :info) do %>
+        <p class="taskify-status" role="alert"><%= get_flash(@conn, :info) %></p>
+      <% end %>
+      <%= if get_flash(@conn, :error) do %>
+        <p class="taskify-status alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <% end %>
+    </main>
+    
+  </div>
+  <footer>
+    <div class="footer__content">
+      <p>Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+      <p class="footer__author">Developed by Cristian Dragomir</p>
+      <%= if @current_user do %>
+        <%= link "Log Out", to: "/session", method: :delete, class: "footer__logout" %>
+      <% end %>
+    </div>
+  </footer>
+  <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+</body>
+</html>

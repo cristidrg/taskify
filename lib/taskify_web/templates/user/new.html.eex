@@ -1,0 +1,21 @@
+<div class="landing">
+  <p class="landing__copy"> Use taskify for tracking your tasks! You can create tasks with titles, descriptions and assign them to friends! Mark them as complete and note down how much you've worked on them! All of this for <span class="text-pop">FREE!</span></p>
+  <div class="landing__login">
+    <p class="landing__sign">Create your account</p>
+    <p class="landing__personal">with your personal email and name</p>
+    <%= form_for @changeset, user_path(@conn, :create), fn f -> %>
+        <%= text_input f, :email, class: "landing__input-reg", required: "true", type: "email", placeholder: "Email" %>
+
+        <%= text_input f, :name, class: "landing__input-reg", required: "true", placeholder: "Full Name" %>
+
+        <%= submit "Register", class: "btn btn-primary landing__btn" %>
+    <% end %>
+    <a href="/" class="landing__create">Back to login</a>
+  </div>
+</div>
+
+<%= if @changeset.action do %>
+  <div class="alert alert-danger">
+    <p>Email is not unique!</p>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<div class="landing">
+  <p class="landing__copy"> Use taskify for tracking your tasks! You can create tasks with titles, descriptions and assign them to friends! Mark them as complete and note down how much you've worked on them! All of this for <span class="text-pop">FREE!</span></p>
+  <div class="landing__login">
+    <p class="landing__sign">Sign in</p>
+    <p class="landing__personal">with your personal email</p>
+    <%= form_tag("/session", method: :post) do %>
+      <input class="landing__input" type="email" name="email" placeholder="user@example.com">
+      <button class="landing__btn btn btn-primary">Next</button>
+    <% end %>
+    <a href="/users/new" class="landing__create">Create account</a>
+  </div>
+</div>

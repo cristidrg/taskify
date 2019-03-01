@@ -1,0 +1,20 @@
+<div class="task-list">
+  <p class="task-list__header">Tasks</p>
+  <%= link "+", to: task_path(@conn, :new), class: "task-list__add" %>
+  <ul class="task-list__container">
+    <%= for task <- @tasks do %>
+    <li class="task-list__entry">
+      <div class="task-list__info">
+        <span class="task-list__title"><%= task.title %></span>
+        <span class="task-list__time"><%= task.minutes_worked %> mins</span>
+        <span class="task-list__status" data-complete="" ><%= if task.done, do: "✔", else: "✖" %></span>
+      </div>
+      <span class="task-list__description"><%= task.description %></span>
+      <span class="task-list__owner"><%= task.user.name %></span>
+      <%= link "View", to: task_path(@conn, :show, task), class: "task-list__view" %>
+      <%= link "Edit", to: task_path(@conn, :edit, task), class: "task-list__edit" %>
+      <%= link "Delete", to: task_path(@conn, :delete, task), method: :delete, class: "task-list__del" %>
+    </li>
+    <% end %>
+  </ul>
+</div>
